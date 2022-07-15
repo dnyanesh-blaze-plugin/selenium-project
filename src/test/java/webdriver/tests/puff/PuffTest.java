@@ -8,11 +8,15 @@ import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 import org.openqa.selenium.By;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import webdriver.bzm.BZMWebDriver;
 import webdriver.pages.e2.LoginPage;
 import webdriver.pages.e2.profile.ProfilePage;
 import webdriver.tests.AbstractBaseIT;
 
 public class PuffTest extends AbstractBaseIT {
+
+	private BZMWebDriver bzmWebDriver;
 
 	@Rule
 	public TestRule watcher = new TestWatcher(){
@@ -23,15 +27,15 @@ public class PuffTest extends AbstractBaseIT {
 	};
 
 	@Test
-	public void loginPageLoads() {
+	public void loginPageLoads() throws Exception {
 		
 		// -------------------------------
 		// Assertion Login Page loads
 		// -------------------------------
-		LoginPage loginPage = new LoginPage(driver);
+//		LoginPage loginPage = new LoginPage(driver);
+		LoginPage loginPage = new LoginPage(bzmWebDriver.bzmRemotWebDrive());
 		assertTrue("No Name Field",loginPage.isUserNameFieldPresent());
 	}
-
 	@Test
 	public void openProfilePageTest() {
 		
