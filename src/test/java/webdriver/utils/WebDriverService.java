@@ -292,7 +292,7 @@ public class WebDriverService {
 		capabilities.setCapability("browserVersion", browserVersion);
 		capabilities.setCapability("resolution", "1600x1200");
 
-		RemoteWebDriver driver = new RemoteWebDriver(new URL("https://cwt1:yw8WTEeeYZdE6czxzJNx@hub-cloud.browserstack.com/wd/hub"), capabilities);
+		RemoteWebDriver driver = new RemoteWebDriver(new URL(""), capabilities);
 		driver.setFileDetector(new LocalFileDetector());
 
 		return driver;
